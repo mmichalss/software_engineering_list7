@@ -11,14 +11,12 @@ def validate_positive(n):
 
 
 class Product(models.Model):
-    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=50, decimal_places=3, validators=[validate_positive])
     available = models.BooleanField()
 
 
 class Customer(models.Model):
-    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=100)
     address = models.CharField()
 
@@ -30,7 +28,6 @@ class Order(models.Model):
         'S': 'Sent',
         'C': 'Completed'
     }
-    id = models.IntegerField(primary_key=True)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     products = models.ManyToManyField(Product)
     date = models.DateField()
