@@ -30,7 +30,7 @@ jobs:
       - name: Generate API documentation
         run: |
           source venv/bin/activate
-          python software_engineering_list7/manage.py generateschema > docs.json
+          python manage.py generateschema > docs.json
       - name: Commit and push documentation
         run: |
           git config --global user.mail "github-actions[bot]@users.noreply.github.com"
