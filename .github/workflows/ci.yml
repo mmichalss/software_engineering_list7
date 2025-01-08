@@ -31,6 +31,17 @@ jobs:
         run: |
           source venv/bin/activate
           python manage.py generateschema > docs.json
+
+      - name: Check for changes
+        run: |
+          git config --global user.mail "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git add docs.json index.html
+          if git diff-index --quiet HEAD; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
       - name: Commit and push documentation
         run: |
           git config --global user.mail "github-actions[bot]@users.noreply.github.com"
