@@ -10,4 +10,4 @@ ENV PYTHONUNBUFFERED 1
 
 EXPOSE 9999
 
-CMD ["python", "djangoproject/manage.py", "runserver", "0.0.0.0:9999"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:9999"]
